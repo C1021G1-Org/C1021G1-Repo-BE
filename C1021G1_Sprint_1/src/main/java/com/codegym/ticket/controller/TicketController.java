@@ -1,8 +1,8 @@
-package com.codegym.customer.controller;
+package com.codegym.ticket.controller;
 
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class CustomerController {
+public class TicketController {
 
 }
