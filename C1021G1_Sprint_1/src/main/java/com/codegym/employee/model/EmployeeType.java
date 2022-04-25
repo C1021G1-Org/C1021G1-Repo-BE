@@ -8,13 +8,37 @@ public class EmployeeType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    private String name;
+    private String nameEmployeeType;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeType")
     private Set<Employee> employees;
 
     public EmployeeType() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNameEmployeeType() {
+        return nameEmployeeType;
+    }
+
+    public void setNameEmployeeType(String nameEmployeeType) {
+        this.nameEmployeeType = nameEmployeeType;
+    }
+
+    public Set<Employee> getEmployees() {
+        return employees;
+    }
+
+    public void setEmployees(Set<Employee> employees) {
+        this.employees = employees;
     }
 }

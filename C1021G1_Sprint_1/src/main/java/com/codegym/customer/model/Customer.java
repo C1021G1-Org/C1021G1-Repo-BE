@@ -10,106 +10,126 @@ public class Customer {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    private String name;
+    private String nameCustomer;
 
-    private Boolean gender;
+    private Boolean genderCustomer;
 
     @Column(columnDefinition = "DATE")
-    private String birthday;
+    private String dayOfBirth;
 
-    private String idCard;
+    private String idCardCustomer;
 
-    private String email;
+    private String phoneCustomer;
 
-    private String address;
+    private String emailCustomer;
 
-    private String country;
+    private String addressCustomer;
 
-    private Boolean delFlag;
+    private String countryCustomer;
 
-    @JsonManagedReference
+    private Boolean delFlagCustomer;
+
+    private int pointCustomer;
+
     @ManyToOne
     @JoinColumn(name = "id_customer_type", referencedColumnName = "id")
     private CustomerType customerType;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
+
     private Set<Ticket> ticketC;
 
     public Customer() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameCustomer() {
+        return nameCustomer;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameCustomer(String nameCustomer) {
+        this.nameCustomer = nameCustomer;
     }
 
-    public Boolean getGender() {
-        return gender;
+    public Boolean getGenderCustomer() {
+        return genderCustomer;
     }
 
-    public void setGender(Boolean gender) {
-        this.gender = gender;
+    public void setGenderCustomer(Boolean genderCustomer) {
+        this.genderCustomer = genderCustomer;
     }
 
-    public String getBirthday() {
-        return birthday;
+    public String getDayOfBirth() {
+        return dayOfBirth;
     }
 
-    public void setBirthday(String birthday) {
-        this.birthday = birthday;
+    public void setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
     }
 
-    public String getIdCard() {
-        return idCard;
+    public String getIdCardCustomer() {
+        return idCardCustomer;
     }
 
-    public void setIdCard(String idCard) {
-        this.idCard = idCard;
+    public void setIdCardCustomer(String idCardCustomer) {
+        this.idCardCustomer = idCardCustomer;
     }
 
-    public String getEmail() {
-        return email;
+    public String getPhoneCustomer() {
+        return phoneCustomer;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setPhoneCustomer(String phoneCustomer) {
+        this.phoneCustomer = phoneCustomer;
     }
 
-    public String getAddress() {
-        return address;
+    public String getEmailCustomer() {
+        return emailCustomer;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setEmailCustomer(String emailCustomer) {
+        this.emailCustomer = emailCustomer;
     }
 
-    public String getCountry() {
-        return country;
+    public String getAddressCustomer() {
+        return addressCustomer;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
+    public void setAddressCustomer(String addressCustomer) {
+        this.addressCustomer = addressCustomer;
     }
 
-    public Boolean getDelFlag() {
-        return delFlag;
+    public String getCountryCustomer() {
+        return countryCustomer;
     }
 
-    public void setDelFlag(Boolean delFlag) {
-        this.delFlag = delFlag;
+    public void setCountryCustomer(String countryCustomer) {
+        this.countryCustomer = countryCustomer;
+    }
+
+    public Boolean getDelFlagCustomer() {
+        return delFlagCustomer;
+    }
+
+    public void setDelFlagCustomer(Boolean delFlagCustomer) {
+        this.delFlagCustomer = delFlagCustomer;
+    }
+
+    public int getPointCustomer() {
+        return pointCustomer;
+    }
+
+    public void setPointCustomer(int pointCustomer) {
+        this.pointCustomer = pointCustomer;
     }
 
     public CustomerType getCustomerType() {
@@ -118,5 +138,13 @@ public class Customer {
 
     public void setCustomerType(CustomerType customerType) {
         this.customerType = customerType;
+    }
+
+    public Set<Ticket> getTicketC() {
+        return ticketC;
+    }
+
+    public void setTicketC(Set<Ticket> ticketC) {
+        this.ticketC = ticketC;
     }
 }

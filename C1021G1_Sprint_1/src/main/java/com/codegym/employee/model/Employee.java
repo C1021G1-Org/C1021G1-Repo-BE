@@ -10,26 +10,27 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    private String name;
+    private String nameEmployee;
 
-    private String code;
+    private String codeEmployee;
 
-    private Boolean gender;
+    private Boolean genderEmployee;
 
     @Column(columnDefinition = "DATE")
-    private String birthday;
+    private String dayOfBirth;
 
-    private String phone;
+    private String phoneEmployee;
 
-    private String email;
+    private String emailEmployee;
 
-    private String address;
+    private String addressEmployee;
 
-    private Boolean delFlag;
+    private Boolean delFlagEmployee;
 
-    @JsonManagedReference
+    private int pointEmployee;
+
     @ManyToOne
     @JoinColumn(name = "id_employee_type", referencedColumnName = "id")
     private EmployeeType employeeType;
@@ -40,4 +41,99 @@ public class Employee {
     public Employee() {
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getNameEmployee() {
+        return nameEmployee;
+    }
+
+    public void setNameEmployee(String nameEmployee) {
+        this.nameEmployee = nameEmployee;
+    }
+
+    public String getCodeEmployee() {
+        return codeEmployee;
+    }
+
+    public void setCodeEmployee(String codeEmployee) {
+        this.codeEmployee = codeEmployee;
+    }
+
+    public Boolean getGenderEmployee() {
+        return genderEmployee;
+    }
+
+    public void setGenderEmployee(Boolean genderEmployee) {
+        this.genderEmployee = genderEmployee;
+    }
+
+    public String getDayOfBirth() {
+        return dayOfBirth;
+    }
+
+    public void setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
+    }
+
+    public String getPhoneEmployee() {
+        return phoneEmployee;
+    }
+
+    public void setPhoneEmployee(String phoneEmployee) {
+        this.phoneEmployee = phoneEmployee;
+    }
+
+    public String getEmailEmployee() {
+        return emailEmployee;
+    }
+
+    public void setEmailEmployee(String emailEmployee) {
+        this.emailEmployee = emailEmployee;
+    }
+
+    public String getAddressEmployee() {
+        return addressEmployee;
+    }
+
+    public void setAddressEmployee(String addressEmployee) {
+        this.addressEmployee = addressEmployee;
+    }
+
+    public Boolean getDelFlagEmployee() {
+        return delFlagEmployee;
+    }
+
+    public void setDelFlagEmployee(Boolean delFlagEmployee) {
+        this.delFlagEmployee = delFlagEmployee;
+    }
+
+    public int getPointEmployee() {
+        return pointEmployee;
+    }
+
+    public void setPointEmployee(int pointEmployee) {
+        this.pointEmployee = pointEmployee;
+    }
+
+    public EmployeeType getEmployeeType() {
+        return employeeType;
+    }
+
+    public void setEmployeeType(EmployeeType employeeType) {
+        this.employeeType = employeeType;
+    }
+
+    public Set<Ticket> getTicketE() {
+        return ticketE;
+    }
+
+    public void setTicketE(Set<Ticket> ticketE) {
+        this.ticketE = ticketE;
+    }
 }

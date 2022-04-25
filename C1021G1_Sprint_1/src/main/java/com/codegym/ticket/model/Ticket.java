@@ -2,7 +2,7 @@ package com.codegym.ticket.model;
 
 import com.codegym.customer.model.Customer;
 import com.codegym.employee.model.Employee;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.codegym.flight.model.Flight;
 import javax.persistence.*;
 
 @Entity
@@ -10,42 +10,142 @@ public class Ticket {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
-    private String name;
+    private String codeTicket;
 
-    private String code;
+    private String emailTicket;
 
-    private String email;
+    private String phoneTicket;
 
-    private String phone;
+    private Boolean genderTicket;
 
-    private Boolean gender;
-
-    private Boolean status;
+    private Boolean statusTicket;
                 // Giá vé
-    private Double price;
+    private Double priceTicket;
 
-    private Boolean delFlag;
+    private Boolean delFlagTicket;
 
-    private String point;
-                // Người mua vé
+    private int pointTicket;
+              // Người mua vé
     private String buyer;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id_seat", referencedColumnName = "id")
-    private Seat seat;
-
-    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "id_employee", referencedColumnName = "id")
     private Employee employee;
 
-    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "id_customer", referencedColumnName = "id")
     private Customer customer;
 
+    @ManyToOne
+    @JoinColumn(name = "id_flight", referencedColumnName = "id")
+    private Flight flightT;
+
     public Ticket() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getCodeTicket() {
+        return codeTicket;
+    }
+
+    public void setCodeTicket(String codeTicket) {
+        this.codeTicket = codeTicket;
+    }
+
+    public String getEmailTicket() {
+        return emailTicket;
+    }
+
+    public void setEmailTicket(String emailTicket) {
+        this.emailTicket = emailTicket;
+    }
+
+    public String getPhoneTicket() {
+        return phoneTicket;
+    }
+
+    public void setPhoneTicket(String phoneTicket) {
+        this.phoneTicket = phoneTicket;
+    }
+
+    public Boolean getGenderTicket() {
+        return genderTicket;
+    }
+
+    public void setGenderTicket(Boolean genderTicket) {
+        this.genderTicket = genderTicket;
+    }
+
+    public Boolean getStatusTicket() {
+        return statusTicket;
+    }
+
+    public void setStatusTicket(Boolean statusTicket) {
+        this.statusTicket = statusTicket;
+    }
+
+    public Double getPriceTicket() {
+        return priceTicket;
+    }
+
+    public void setPriceTicket(Double priceTicket) {
+        this.priceTicket = priceTicket;
+    }
+
+    public Boolean getDelFlagTicket() {
+        return delFlagTicket;
+    }
+
+    public void setDelFlagTicket(Boolean delFlagTicket) {
+        this.delFlagTicket = delFlagTicket;
+    }
+
+    public int getPointTicket() {
+        return pointTicket;
+    }
+
+    public void setPointTicket(int pointTicket) {
+        this.pointTicket = pointTicket;
+    }
+
+    public String getBuyer() {
+        return buyer;
+    }
+
+    public void setBuyer(String buyer) {
+        this.buyer = buyer;
+    }
+
+    public Employee getEmployee() {
+        return employee;
+    }
+
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
+    }
+
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(Customer customer) {
+        this.customer = customer;
+    }
+
+    public Flight getFlightT() {
+        return flightT;
+    }
+
+    public void setFlightT(Flight flightT) {
+        this.flightT = flightT;
     }
 }
