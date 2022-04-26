@@ -1,5 +1,7 @@
 package com.codegym.employee.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -12,6 +14,7 @@ public class EmployeeType {
 
     private String nameEmployeeType;
 
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employeeType")
     private Set<Employee> employees;
 

@@ -1,7 +1,7 @@
 package com.codegym.customer.model;
 
 import com.codegym.ticket.model.Ticket;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.util.Set;
 
@@ -27,18 +27,23 @@ public class Customer {
 
     private String addressCustomer;
 
-    private String countryCustomer;
-
     private Boolean delFlagCustomer;
 
-    private int pointCustomer;
+    private Integer pointCustomer;
+
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageCustomer;
+
+    @ManyToOne
+    @JoinColumn(name = "id_country", referencedColumnName = "id")
+    private Countries countries;
 
     @ManyToOne
     @JoinColumn(name = "id_customer_type", referencedColumnName = "id")
     private CustomerType customerType;
 
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "customer")
-
     private Set<Ticket> ticketC;
 
     public Customer() {
@@ -108,14 +113,6 @@ public class Customer {
         this.addressCustomer = addressCustomer;
     }
 
-    public String getCountryCustomer() {
-        return countryCustomer;
-    }
-
-    public void setCountryCustomer(String countryCustomer) {
-        this.countryCustomer = countryCustomer;
-    }
-
     public Boolean getDelFlagCustomer() {
         return delFlagCustomer;
     }
@@ -124,12 +121,28 @@ public class Customer {
         this.delFlagCustomer = delFlagCustomer;
     }
 
-    public int getPointCustomer() {
+    public Integer getPointCustomer() {
         return pointCustomer;
     }
 
-    public void setPointCustomer(int pointCustomer) {
+    public void setPointCustomer(Integer pointCustomer) {
         this.pointCustomer = pointCustomer;
+    }
+
+    public String getImageCustomer() {
+        return imageCustomer;
+    }
+
+    public void setImageCustomer(String imageCustomer) {
+        this.imageCustomer = imageCustomer;
+    }
+
+    public Countries getCountries() {
+        return countries;
+    }
+
+    public void setCountries(Countries countries) {
+        this.countries = countries;
     }
 
     public CustomerType getCustomerType() {

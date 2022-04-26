@@ -3,10 +3,8 @@ package com.codegym.flight.model;
 import com.codegym.ticket.model.Seat;
 import com.codegym.ticket.model.Ticket;
 import com.fasterxml.jackson.annotation.JsonBackReference;
-
 import javax.persistence.*;
 import java.util.Set;
-
 
 @Entity
 public class Flight {
@@ -14,8 +12,6 @@ public class Flight {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    private String airline;
 
     private String codeFlight;
 
@@ -27,8 +23,6 @@ public class Flight {
 
     private String dateEnd;
 
-    private Double priceFlight;
-
     private Boolean delFlagFlight;
 
     @JsonBackReference
@@ -39,6 +33,10 @@ public class Flight {
     @OneToMany(mappedBy = "flightT")
     private Set<Ticket> tickets;
 
+    @ManyToOne
+    @JoinColumn(name = "id_airline_type", referencedColumnName = "id")
+    private AirlineType airlineType;
+
     public Flight() {
     }
 
@@ -48,14 +46,6 @@ public class Flight {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getAirline() {
-        return airline;
-    }
-
-    public void setAirline(String airline) {
-        this.airline = airline;
     }
 
     public String getCodeFlight() {
@@ -98,14 +88,6 @@ public class Flight {
         this.dateEnd = dateEnd;
     }
 
-    public Double getPriceFlight() {
-        return priceFlight;
-    }
-
-    public void setPriceFlight(Double priceFlight) {
-        this.priceFlight = priceFlight;
-    }
-
     public Boolean getDelFlagFlight() {
         return delFlagFlight;
     }
@@ -128,5 +110,13 @@ public class Flight {
 
     public void setTickets(Set<Ticket> tickets) {
         this.tickets = tickets;
+    }
+
+    public AirlineType getAirlineType() {
+        return airlineType;
+    }
+
+    public void setAirlineType(AirlineType airlineType) {
+        this.airlineType = airlineType;
     }
 }

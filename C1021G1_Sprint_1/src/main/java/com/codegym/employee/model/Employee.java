@@ -1,7 +1,8 @@
 package com.codegym.employee.model;
 
 import com.codegym.ticket.model.Ticket;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -29,12 +30,11 @@ public class Employee {
 
     private Boolean delFlagEmployee;
 
-    private int pointEmployee;
-
     @ManyToOne
     @JoinColumn(name = "id_employee_type", referencedColumnName = "id")
     private EmployeeType employeeType;
 
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "employee")
     private Set<Ticket> ticketE;
 
@@ -111,14 +111,6 @@ public class Employee {
 
     public void setDelFlagEmployee(Boolean delFlagEmployee) {
         this.delFlagEmployee = delFlagEmployee;
-    }
-
-    public int getPointEmployee() {
-        return pointEmployee;
-    }
-
-    public void setPointEmployee(int pointEmployee) {
-        this.pointEmployee = pointEmployee;
     }
 
     public EmployeeType getEmployeeType() {

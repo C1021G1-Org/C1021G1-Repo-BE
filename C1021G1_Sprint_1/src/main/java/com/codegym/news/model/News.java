@@ -11,20 +11,20 @@ public class News {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private String name;
+    private String nameNews;
 
-    private String code;
+    private String codeNews;
 
     @Column(columnDefinition = "DATE")
-    private String date;
+    private String dateNews;
 
-    private String image;
+    @Column(columnDefinition = "LONGTEXT")
+    private String imageNew;
 
-    private String title;
+    private String titleNews;
 
-    private String description;
+    private String descriptionNews;
 
-    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "id_category", referencedColumnName = "id")
     private Category category;
@@ -40,52 +40,52 @@ public class News {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getNameNews() {
+        return nameNews;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setNameNews(String nameNews) {
+        this.nameNews = nameNews;
     }
 
-    public String getCode() {
-        return code;
+    public String getCodeNews() {
+        return codeNews;
     }
 
-    public void setCode(String code) {
-        this.code = code;
+    public void setCodeNews(String codeNews) {
+        this.codeNews = codeNews;
     }
 
-    public String getDate() {
-        return date;
+    public String getDateNews() {
+        return dateNews;
     }
 
-    public void setDate(String date) {
-        this.date = date;
+    public void setDateNews(String dateNews) {
+        this.dateNews = dateNews;
     }
 
-    public String getImage() {
-        return image;
+    public String getImageNew() {
+        return imageNew;
     }
 
-    public void setImage(String image) {
-        this.image = image;
+    public void setImageNew(String imageNew) {
+        this.imageNew = imageNew;
     }
 
-    public String getTitle() {
-        return title;
+    public String getTitleNews() {
+        return titleNews;
     }
 
-    public void setTitle(String title) {
-        this.title = title;
+    public void setTitleNews(String titleNews) {
+        this.titleNews = titleNews;
     }
 
-    public String getDescription() {
-        return description;
+    public String getDescriptionNews() {
+        return descriptionNews;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setDescriptionNews(String descriptionNews) {
+        this.descriptionNews = descriptionNews;
     }
 
     public Category getCategory() {

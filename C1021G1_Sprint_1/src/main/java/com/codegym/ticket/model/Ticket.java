@@ -26,9 +26,12 @@ public class Ticket {
 
     private Boolean delFlagTicket;
 
-    private int pointTicket;
+    private Integer pointTicket;
               // Người mua vé
     private String buyer;
+
+          // Ngày sinh của người mua vé
+    private String dayOfBirth;
 
     @ManyToOne
     @JoinColumn(name = "id_employee", referencedColumnName = "id")
@@ -109,11 +112,11 @@ public class Ticket {
         this.delFlagTicket = delFlagTicket;
     }
 
-    public int getPointTicket() {
+    public Integer getPointTicket() {
         return pointTicket;
     }
 
-    public void setPointTicket(int pointTicket) {
+    public void setPointTicket(Integer pointTicket) {
         this.pointTicket = pointTicket;
     }
 
@@ -147,5 +150,13 @@ public class Ticket {
 
     public void setFlightT(Flight flightT) {
         this.flightT = flightT;
+    }
+
+    public String getDayOfBirth() {
+        return dayOfBirth;
+    }
+
+    public void setDayOfBirth(String dayOfBirth) {
+        this.dayOfBirth = dayOfBirth;
     }
 }

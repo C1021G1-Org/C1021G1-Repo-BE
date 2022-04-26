@@ -1,5 +1,7 @@
 package com.codegym.news.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import javax.persistence.*;
 import java.util.Set;
 
@@ -11,6 +13,8 @@ public class Category {
     private Integer id;
 
     private String name;
+
+    @JsonBackReference
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "category")
     private Set<News> news;
 
