@@ -1,5 +1,6 @@
-package com.codegym.ticket.model;
+package com.codegym.flight.model;
 
+import com.codegym.flight.model.Seat;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
 import java.util.Set;

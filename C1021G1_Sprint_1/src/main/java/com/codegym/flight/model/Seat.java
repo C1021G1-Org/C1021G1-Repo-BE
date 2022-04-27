@@ -1,6 +1,5 @@
-package com.codegym.ticket.model;
+package com.codegym.flight.model;
 
-import com.codegym.flight.model.Flight;
 import javax.persistence.*;
 
 @Entity
