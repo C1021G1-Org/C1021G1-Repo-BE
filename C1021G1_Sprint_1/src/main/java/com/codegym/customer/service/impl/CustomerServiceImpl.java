@@ -1,4 +1,4 @@
 package com.codegym.customer.service.impl;
 
-public class CustomerService {
+public class CustomerServiceImpl {
 }
