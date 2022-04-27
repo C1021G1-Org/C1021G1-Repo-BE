@@ -1,4 +1,4 @@
-package com.codegym.ticket.model;
+package com.codegym.flight.model;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import javax.persistence.*;
