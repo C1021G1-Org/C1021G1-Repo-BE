@@ -1,7 +1,5 @@
 package com.codegym.news.model;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-
 import javax.persistence.*;
 
 @Entity
@@ -9,7 +7,7 @@ public class News {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     private String nameNews;
 
@@ -19,7 +17,7 @@ public class News {
     private String dateNews;
 
     @Column(columnDefinition = "LONGTEXT")
-    private String imageNew;
+    private String imageNews;
 
     private String titleNews;
 
@@ -32,11 +30,11 @@ public class News {
     public News() {
     }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -64,12 +62,12 @@ public class News {
         this.dateNews = dateNews;
     }
 
-    public String getImageNew() {
-        return imageNew;
+    public String getImageNews() {
+        return imageNews;
     }
 
-    public void setImageNew(String imageNew) {
-        this.imageNew = imageNew;
+    public void setImageNews(String imageNews) {
+        this.imageNews = imageNews;
     }
 
     public String getTitleNews() {
